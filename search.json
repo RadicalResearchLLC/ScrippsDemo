@@ -1,0 +1,241 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Coding Exercise",
+    "section": "",
+    "text": "Introduction",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#preface",
+    "href": "index.html#preface",
+    "title": "Coding Exercise",
+    "section": "Preface",
+    "text": "Preface\nThis is the website for a coding exercise about an environmental issue in a programming course, provided as part of on-site interview. This exercise is a modified version of a couple of existing lessons provided in EA 078 - Environmental Data Visualization.\n\n\n\n\n\n\nThis book is created using the Quarto publishing system in order to provide an example of its use in environmental data visualization and as a course resource tool for display of coding examples and visualization. The underlying code is hosted on github\n\n\n\nThe scholarly research presentation is here.",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "assignment.html",
+    "href": "assignment.html",
+    "title": "Coding Teaching Demo Assignment",
+    "section": "",
+    "text": "Give an example of a coding exercise about an environmental issue in a programming course. This should not be exclusively done in the ArcGIS platform. You will have 45 minutes followed by 15 minutes for questions. Presume that students have no coding background.\nIn your demo, you should showcase writing new code. Please include creating a short, single-use script that turns out to be valuable, then converting that snippet into a function and reusing it across a much larger part of the investigation.",
+    "crumbs": [
+      "Coding Teaching Demo Assignment"
+    ]
+  },
+  {
+    "objectID": "coding.html",
+    "href": "coding.html",
+    "title": "1  Coding - Basics",
+    "section": "",
+    "text": "1.1 Coding - most Basic\nCoding is a set of precise text-based instructions to a computer. Each programming language has its own set of syntax, vocabulary, and jargon.\nIt is a foreign language.\nToday, I’ll teach you in R, which is my current preferred language. Data visualization is a great place to start with R programming, because the payoff is relatively immediate. You get to make informative and potentially elegant visualizations to help you understand data.",
+    "crumbs": [
+      "Coding Teaching Demo Assignment",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Coding - Basics</span>"
+    ]
+  },
+  {
+    "objectID": "coding.html#stepwise-r-data-science-framework",
+    "href": "coding.html#stepwise-r-data-science-framework",
+    "title": "1  Coding - Basics",
+    "section": "1.2 Stepwise R Data Science Framework",
+    "text": "1.2 Stepwise R Data Science Framework\n\nStep 0 - Install R and RStudio\nStep 1 - Open RStudio \n\nStep 2 - Packages\nA. Install key packages\nB. Load key packages\n\nStep 3 - Acquire and/or Load Data\nA. Identify the path to the data\nB. Identify the data format\nC. Choose the right function to load the data - go to Step 2A and 2B again as needed D. Write code to import the data\nE. Run the code to import the data\n\nCheck for Error messages and warning messages in console; if failure, go back to Step 2D\n\nCheck to make sure data is loaded (look in Environment window)\nF. Look at the data - did it import correctly?\nCheck column headers\n\nCheck data types\nG. Repeat Step 2 as needed for any other data required for visualization\n\n\nStep 3 - Tidy the data Advanced data science\nStep 4 - Visualize the data\nA. Choose the visualization type\nB. Choose the right functions\nC. Write code to do a basic visualization\nD. Add code to improve the visualization (repeat as needed)\nE. Annotate labels, axes, points, legends\nF. Export or publish the visualization\n\nStep 5 - Communicate with your audience using the visualization A. Get feedback from audience B. Revise visualization (Step 4D as needed) to improve for intended audience",
+    "crumbs": [
+      "Coding Teaching Demo Assignment",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Coding - Basics</span>"
+    ]
+  },
+  {
+    "objectID": "coding.html#rstudio-ide-orientation",
+    "href": "coding.html#rstudio-ide-orientation",
+    "title": "1  Coding - Basics",
+    "section": "1.3 RStudio IDE orientation",
+    "text": "1.3 RStudio IDE orientation\n\n\n\n\n\n\nNote\n\n\n\nOpening RStudio loads R.\nOpening R will not load RStudio.\n\n\nFigure 1.1 shows an annotated image of RStudio with the four panels labeled. In the default layout, the top-left is the text editor panel, the bottom-left is the console panel, the top-right is the files, plots, and packages panel, and the bottom-right is the environment panel.\n\n\n\n\n\n\nFigure 1.1: annotated.RStudio\n\n\n\n\nText Editor Panel - This is where you can enter code and have the editor color code it.\nConsole Panel - This is where errors and warnings appear when you run code. It can also be used to do direct coding, which I don’t recommend for beginners.\nFiles, plots, and packages panels - This is where files loaded in the working directory and packages in the default R directory are organized.\nEnvironment Panel - This is where data and variables you define in your coding will be organized",
+    "crumbs": [
+      "Coding Teaching Demo Assignment",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Coding - Basics</span>"
+    ]
+  },
+  {
+    "objectID": "mapsScripps.html",
+    "href": "mapsScripps.html",
+    "title": "2  Maps in R",
+    "section": "",
+    "text": "2.1 Install Packages\nPackages are collections of functions that accomplish specialized tasks. To make a map today, we’ll need to install three packages that are not part of base R.\nPackages need to be installed locally the first time they are used.\ninstall.packages('dplyr')\ninstall.packages('sf')\ninstall.packages('leaflet')\nNext, we load the packages to make sure they are available within the R environment.\nlibrary(dplyr)\nlibrary(sf)\nlibrary(leaflet)",
+    "crumbs": [
+      "Coding Teaching Demo Assignment",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Maps in R</span>"
+    ]
+  },
+  {
+    "objectID": "mapsScripps.html#install-packages",
+    "href": "mapsScripps.html#install-packages",
+    "title": "2  Maps in R",
+    "section": "",
+    "text": "dplyr - data manipulation\nsf - spatial data manipulation\nleaflet - interactive, mobile-friendly maps",
+    "crumbs": [
+      "Coding Teaching Demo Assignment",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Maps in R</span>"
+    ]
+  },
+  {
+    "objectID": "mapsScripps.html#acquiring-data",
+    "href": "mapsScripps.html#acquiring-data",
+    "title": "2  Maps in R",
+    "section": "2.2 Acquiring Data",
+    "text": "2.2 Acquiring Data\nWe will import a curated version of the CalEnviroscreen4.0 data.\nCoding Vocabulary\n\nst_read() reads geospatial data files.\nst_transform() alters coordinate reference system.\n&lt;- operator to assign to a variable\n|&gt; pipe operator\ncrs - coordinate reference system, where 4326 is WGS84\n\n\n#web url\nURL.path &lt;- 'https://raw.githubusercontent.com/RadicalResearchLLC/EDVcourse/main/CalEJ4/CalEJ.geoJSON'\n\n#read data and assign it \nSoCalEJ &lt;- st_read(URL.path) |&gt; \n  st_transform(crs = 4326) #change crs \n\nReading layer `CalEJ' from data source \n  `https://raw.githubusercontent.com/RadicalResearchLLC/EDVcourse/main/CalEJ4/CalEJ.geoJSON' \n  using driver `GeoJSON'\nSimple feature collection with 3747 features and 66 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 97418.38 ymin: -577885.1 xmax: 539719.6 ymax: -236300\nProjected CRS: NAD83 / California Albers\n\n\n\n\n\n\n\n\nPro tip: Always look at the data after import. Importing data is fraught with peril.\n\n\n\n\nhead(SoCalEJ)\n\nSimple feature collection with 6 features and 66 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -117.874 ymin: 33.5556 xmax: -117.7157 ymax: 33.64253\nGeodetic CRS:  WGS 84\n       Tract   ZIP County     ApproxLoc TotPop19   CIscore   CIscoreP\n1 6059062640 92656 Orange   Aliso Viejo     3741  9.642007 12.1028744\n2 6059062641 92637 Orange   Aliso Viejo     5376 10.569290 14.3343419\n3 6059062642 92625 Orange Newport Beach     2834  3.038871  0.6807867\n4 6059062643 92657 Orange Newport Beach     7231  6.538151  5.8497226\n5 6059062644 92660 Orange Newport Beach     8487  8.873604 10.4009077\n6 6059062645 92657 Orange Newport Beach     6527  6.033648  4.7402925\n       Ozone   OzoneP     PM2_5  PM2_5_P   DieselPM DieselPM_P  Pesticide\n1 0.05165298 65.36403  9.445785 43.88301 0.14536744   50.13068 0.00000000\n2 0.05219839 66.80772  9.785209 46.89484 0.07372588   27.41755 0.00000000\n3 0.04827750 55.38270 10.433417 52.03485 0.03478566   12.40821 0.06496406\n4 0.04901945 58.23273 10.013395 49.29683 0.03594981   12.90604 0.00000000\n5 0.04863521 56.96329 10.565404 52.63223 0.07701293   28.73678 0.00000000\n6 0.04863521 56.96329 10.329985 51.28811 0.04047264   14.58619 0.00000000\n  PesticideP   Tox_Rel Tox_Rel_P   Traffic TrafficP DrinkWat DrinkWatP\n1    0.00000  293.8420  41.44786  999.0182  57.7125 177.3831  5.907331\n2    0.00000  681.0703  57.65191 1051.9778  61.2250 312.7169 25.939803\n3   22.58621 1557.6400  74.05601  874.8193  49.5000 332.6654 32.284251\n4    0.00000 1349.2300  70.69267 1169.7532  67.4250 332.6654 32.284251\n5    0.00000 1889.5133  78.03201 1383.9867  74.9500 332.6654 32.284251\n6    0.00000 1589.1400  74.44361 1025.2790  59.5750 332.6654 32.284251\n       Lead    Lead_P Cleanup  CleanupP GWThreat GWThreatP HazWaste HazWasteP\n1 18.450498 10.737240     0.0  0.000000      0.0  0.000000    0.280  46.80344\n2  9.898042  3.730309     0.0  0.000000      0.0  0.000000    0.280  46.80344\n3 14.263664  6.830498     4.5 40.836133      2.0 14.311805    0.150  26.67108\n4  5.594984  1.600504     0.0  0.000000      0.5  2.722896    0.210  37.68365\n5 16.777373  9.061122     0.0  0.000000      7.5 39.448780    0.395  60.22502\n6 12.086059  5.343415     0.7  9.593132      2.0 14.311805    0.100  16.63799\n  ImpWatBod ImpWatBodP SolWaste SolWasteP PollBurd PolBurdSc PolBurdP Asthma\n1         7   66.73667        0   0.00000 30.50123  3.724194 18.95457  21.70\n2         7   66.73667        2  52.89805 35.23480  4.302163 29.71998  21.74\n3         8   72.15456        0   0.00000 35.68847  4.357555 30.77785  14.93\n4         6   58.69383        0   0.00000 30.97653  3.782228 19.87554  10.33\n5         2   23.87652        2  52.89805 39.48486  4.821094 41.44368  13.88\n6         3   33.15834        2  52.89805 32.98028  4.026885 24.04480  10.51\n     AsthmaP LowBirtWt   LowBirWP Cardiovas CardiovasP Educatn     EducatP\n1 11.2786640      4.45 37.2337696      9.74 27.5049850     1.0    1.771703\n2 11.3908275      3.50 16.2176033      8.72 18.8310070     8.4   35.876993\n3  3.7263210      1.18  0.2950988      5.41  1.8569292  -999.0 -999.000000\n4  0.9845464      5.39 61.9450860      4.46  0.3988036     2.0    5.859276\n5  2.7542373      2.86  7.6597383      5.43  1.9192423     3.7   14.781068\n6  1.0343968      4.64 42.1991275      4.65  0.4860419     0.0    0.000000\n  Ling_Isol Ling_IsolP Poverty  PovertyP Unempl     UnemplP HousBurd HousBurdP\n1       1.1   7.375829    20.0 34.208543    3.0   17.113483     19.9 62.420786\n2       4.4  33.942347    12.9 16.821608    2.6   11.868818     19.5 60.925222\n3       0.0   0.000000     9.5  8.982412    0.9    1.145237     14.5 35.817490\n4       3.9  30.694275     6.9  4.170854    2.6   11.868818      8.5  8.504436\n5       5.0  37.664095    12.3 15.326633    4.0   30.882353     18.9 58.225602\n6       1.0   6.266071    11.5 13.517588 -999.0 -999.000000     14.8 37.477820\n    PopChar PopCharSc   PopCharP Child_10 Pop_10_64 Elderly65 Hispanic   White\n1 24.958604 2.5890185 13.2375189  10.9864   81.7696    7.2441  16.4662 63.2184\n2 23.683405 2.4567389 11.7750882  13.2812   61.9792   24.7396  22.0238 55.2455\n3  6.722867 0.6973798  0.2647504   5.9280   49.6471   44.4248   5.6104 89.6260\n4 16.664505 1.7286508  4.9167927   7.9657   67.7361   24.2982   4.4530 63.9331\n5 17.743511 1.8405788  5.8119012  10.4866   72.3224   17.1910   8.8488 82.0785\n6 14.444279 1.4983412  3.3787191  11.0311   68.4388   20.5301   3.8302 74.7664\n  AfricanAm NativeAm OtherMult Shape_Leng Shape_Area    AAPI\n1    4.9452   0.0000    3.6087   5604.596    1467574 11.7616\n2    1.3765   0.0000    3.5900   6244.598    2143255 17.7641\n3    0.3881   0.0000    1.4467   6803.947    2048571  2.9287\n4    0.0000   0.3042    6.0987  26448.643   18729420 25.2109\n5    0.0000   0.0000    1.1076  10964.108    4361037  7.9651\n6    0.2911   0.0000    0.8733   9833.066    5754643 20.2390\n                        geometry\n1 MULTIPOLYGON (((-117.7178 3...\n2 MULTIPOLYGON (((-117.7166 3...\n3 MULTIPOLYGON (((-117.8596 3...\n4 MULTIPOLYGON (((-117.7986 3...\n5 MULTIPOLYGON (((-117.8521 3...\n6 MULTIPOLYGON (((-117.8269 3...",
+    "crumbs": [
+      "Coding Teaching Demo Assignment",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Maps in R</span>"
+    ]
+  },
+  {
+    "objectID": "mapsScripps.html#visualize-the-data",
+    "href": "mapsScripps.html#visualize-the-data",
+    "title": "2  Maps in R",
+    "section": "2.3 Visualize the Data",
+    "text": "2.3 Visualize the Data\n\n2.3.1 Choose the visualization type and function\nWe’ll useleaflet() for visualization for geospatial data today, and add at least one add function to display spatial information.\nVocabulary\n\nleaflet() - create a leaflet map\n\naddTiles() - add map tiles\n\naddMarkers() - add point markers\n\naddPolygons() - add filled polygons\n\naddLegends() - add a map legend\n\n\n\n2.3.2 Write the code for a basic geospatial visualization\n\n2.3.2.1 Example 1 - Basic Tile Map\nFigure 2.2 shows the standard leaflet map with a minimal reproducible example.\nThe code is simply two lines with two actionable functions.\n\nleaflet() |&gt; #call a leaflet map\n  addTiles() #with default map tiles\n\n\n\n\n\n\n\nFigure 2.2: A very basic Leaflet map\n\n\n\n\n\n\n2.3.2.2 Example 2. Add Environmental information\n\nMake a leaflet map with the SoCalEJ dataset. It should look like Figure 2.3.\n\n\nleaflet() |&gt; \n  addTiles() |&gt; \n  addPolygons(data = SoCalEJ)  #NEW\n\n\n\n\n\n\n\nFigure 2.3: Leaflet map with Calenviroscreen 4.0\n\n\n\n\n\n\n\n2.3.3 Improve the Visualization\nIn the addPolygons() function, there are many parameters that can be modified.\n\ncolor\nweight\nopacity\nfillColor\nfillOpacity\nstroke\ngroup\nlabel\n\nLet’s iterate and make some improvements!\nFigure 2.4 shows what happens we just change the color from blue to black.\n\nleaflet() |&gt; \n  addTiles() |&gt; \n  addPolygons(data = SoCalEJ, \n              color = 'black') #NEW \n\n\n\n\n\n\n\nFigure 2.4: Leaflet map with SoCalEJ census tracts color changed to black\n\n\n\n\nThe lines are too heavy. Let’s lower the weight - we’ll let the color go back to blue to keep the example minimal.\nFigure 2.5 shows the result, which is a much cleaner look.\n\nleaflet() |&gt; \n  addTiles() |&gt; \n  addPolygons(data = SoCalEJ, \n              color = 'black',\n              weight = 1)  #NEW\n\n\n\n\n\n\n\nFigure 2.5: Leaflet map with line weight changed to 1.\n\n\n\n\n\n2.3.3.1 Visualization Iteration\nWithin the SoCalEJ dataset are over 50 columns of values with names like “Ozone”, “Pesticide”, and “DieselPM_P”. We will use the fillcolor variable to indicate the values of one of these columns using a color palette.\nFunctions that help define the color palette in leaflet are:\n\ncolorNumeric() - a linear color scale\ncolorQuantile() - a color scale that can ensure the bin sizes are approximately equal\ncolorFactor() - a color scale that is good for categorical (‘non-numeric’) data\n\n\n#NEW - color palette definition\npal1 &lt;- colorNumeric(palette = 'magma', domain = SoCalEJ$DieselPM_P) \n\nNow we see what those two palettes look like in the map. Figure 2.6 shows the default numeric palette, but it is too faint with the background tiles.\n\nleaflet() |&gt; \n  addTiles() |&gt; \n  addPolygons(data = SoCalEJ,\n              weight = 1,\n              color = ~pal1(DieselPM_P) #NEW\n              ) \n\n\n\n\n\n\n\nFigure 2.6: Leaflet map for Ozone in Southern California.\n\n\n\n\n\nleaflet(data = SoCalEJ) |&gt; #NEW \n  addProviderTiles(providers$CartoDB.Positron)|&gt; \n  addPolygons(color = ~pal1(DieselPM_P),\n              weight = 1,\n              fillOpacity = 0.8) |&gt; \n  addLegend(pal = pal1, \n            title = 'Diesel Particulate Matter (%)', \n            values = ~DieselPM_P)\n\n\n\n\n\n\n\nFigure 2.7: Leaflet map for with numeric palette for Diesel PM percentiles, color legend, and opacity optimized.",
+    "crumbs": [
+      "Coding Teaching Demo Assignment",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Maps in R</span>"
+    ]
+  },
+  {
+    "objectID": "mapsScripps.html#useful-function",
+    "href": "mapsScripps.html#useful-function",
+    "title": "2  Maps in R",
+    "section": "2.4 Useful Function",
+    "text": "2.4 Useful Function\nThe SoCalEJ dataset has multiple columns that have values of -999 indicating missing data which will interfere with color scales.\nFigure 2.8 is a map using the Lead_P variable instead of DieselPM_P. Lead is an indication of lead-based paint exposures based on housing age households with children under age 6.\n\npalLead &lt;- colorNumeric(palette = 'magma', domain = SoCalEJ$Lead_P, n = 5)\n\nleaflet(data = SoCalEJ) |&gt; \n  addProviderTiles(providers$CartoDB.Positron) |&gt; \n  setView(lat = 34, lng = -117.60, zoom = 9) |&gt; \n  addPolygons(weight = 1,\n              color = ~palLead(Lead_P),\n              fillOpacity = 0.8) |&gt; \n  addLegend(pal = palLead, \n            title = 'Lead (%)', \n            values = ~Lead_P)\n\n\n\n\n\n\n\nFigure 2.8: Leaflet map for Lead Paint exposure percentile in Southern California\n\n\n\n\nThe -999 values make the visualization useless. We need to clean the dataset. A function can replace -999 values with NA.\nA function can be created by defining a name, arguments, the code to execute the algorithm, and a return of the transformed dataset.\n\n# General Structure\nfunction_name &lt;- function(data, argument1) {\n  # Perform cleaning steps (e.g., replace -999 with NA)\n  cleaned_data &lt;- ... \n  return(cleaned_data)\n}\n\n\n2.4.1 Practical Example\nStart with a working example.\n\nSoCalEJ2 &lt;- mutate(SoCalEJ, \n    # this searches for -999 values and replaces them with -999 for the Lead_P variable\n            Lead_P = if_else(Lead_P == -999, NA, Lead_P)\n      )\n\nCreate the function that applies that code.\n\n## Unfortunately, this functional example is very complicated and terrible\n## tidy nonstandard evaluation makes this extremely unintuitive\n## this goes beyond the scope of a very beginner lecture\n\nreplace999 &lt;- function(df, var) {\n  clean &lt;- mutate(df, \n    \"clean\" = if_else({{ var }} == -999, NA, {{ var }}))\n  return(clean)\n}\n\n\n\n2.4.2 Apply the function\n\nSoCalEJ &lt;- replace999(SoCalEJ, Lead_P) \n\n\n\n2.4.3 Rerun the map code\nFigure 2.9 shows the update\n\n##Note - the column name is now clean rather than Lead_P in the color palette and code\npalLead &lt;- colorNumeric(palette = 'magma', domain = SoCalEJ$clean, n = 5)\n\nleaflet(data = SoCalEJ) |&gt; \n  addTiles() |&gt; \n  setView(lat = 34, lng = -117.60, zoom = 9) |&gt; \n  addPolygons(stroke = FALSE,\n              fillColor = ~palLead(clean),\n              fillOpacity = 0.8) |&gt; \n  addLegend(pal = palLead, \n            title = 'Lead Paint (%)', \n            values = ~clean)\n\n\n\n\n\n\n\nFigure 2.9: Clean Lead Paint exposure percentile in Southern California",
+    "crumbs": [
+      "Coding Teaching Demo Assignment",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Maps in R</span>"
+    ]
+  },
+  {
+    "objectID": "tools.html",
+    "href": "tools.html",
+    "title": "Appendix A — R and RStudio Installation and Overview",
+    "section": "",
+    "text": "A.1 Download and Install R\nR is a free software environment for statistical computing and graphics.\nCurrent version 4.5.3 “Reassured Reassurer” was released March 11, 2026\nRStudio is an integrated development environment (IDE) for R. It is available in open source and commercial editions. This lecture is using RStudio 2026.01.2+418.\nPosit Cloud is an online version that has a free version but is mostly a subscription Softward-as-a-Service model of the same tools. This is an option for those who prefer licensing and throttled use features.\nThese tools will be the primary software used in this course to develop environmental visualizations. Alternate tools/software can be used for assignments and projects, but I will not devote class time to troubleshooting those tools/software.\nR is maintained and made available through the web-page at The Comprehensive R Archive Network aka CRAN.\nThe top of the CRAN web page provides three links for downloading R. Follow the link that describes the OS of your computer: Mac, Windows, or Linux.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>R and RStudio Installation and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "tools.html#download-and-install-r",
+    "href": "tools.html#download-and-install-r",
+    "title": "Appendix A — R and RStudio Installation and Overview",
+    "section": "",
+    "text": "A.1.1 R for macOS\nTo install R on a Mac, click the “Download R for macOS” link. Next, click on the R-4.5.3 package link (or the package link for the most current release of R). An installer will download to guide you through the installation process. As a starting point, I recommend that most users should choose the default installation settings until they are familiar with R.\n\n\nA.1.2 R for Windows\nTo install R on Windows, click the “Download R for Windows” link. Next, click on the install R for the first time link which contains base R. Then click on the link that says Download R-4.5.3 for Windows. A win.exe file will be downloaded to your downloads folder. Open that file after it downloads and follow the installation process. As a starting point, I recommend that most users should choose the default installation settings until they are familiar with R.\n\n\nA.1.3 R for Linux\nR comes preinstalled on many Linux systems, but update to the newest version of R if yours is out of date. The CRAN website provides files for different Linux builds including Debian, Fedora, Redhat, Suse, and Ubuntu. Choose the appropriate directory and the installation procedure for your flavor of Linux.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>R and RStudio Installation and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "tools.html#about-r",
+    "href": "tools.html#about-r",
+    "title": "Appendix A — R and RStudio Installation and Overview",
+    "section": "A.2 About R",
+    "text": "A.2 About R\nR is not a friendly computer program like a web browser or a Microsoft Office product. R is a programming language, like C++, Python, or Java. R can be run like an old-school UNIX terminal, writing commands directly onto monitors with green fonts; imagine Neo in the Matrix or Angelina Jolie in Hackers. While one can still do that, most folks use an IDE.\n\n\n\nHackers use green fonts and dark mode.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>R and RStudio Installation and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "tools.html#rstudio-ide",
+    "href": "tools.html#rstudio-ide",
+    "title": "Appendix A — R and RStudio Installation and Overview",
+    "section": "A.3 RStudio IDE",
+    "text": "A.3 RStudio IDE\nRStudio is an application - like MS Word or a browser. However, Rstudio is an app that helps you write in the “R” language. It is literally a foreign language (unless you know it already). And just like any language, R has its own syntax, grammar, and vocabulary. It takes training and time to learn R, or any programming language\nI recommend RStudio because it makes using R much easier. Also, the RStudio interface looks about the same for different operating systems, which will help me because I am a Windows user and I’ve observed that Claremont Colleges’ scholars tend to lean towards macOS.\nDownload RStudio desktop here - I recommend the free open source version. Make sure to pick the version that is appropriate for your OS. Then follow the installation instructions.\nOnce installed, RStudio can be opened like any other program or app on your computer; usually just click on the icon on the desktop. When you open it, it should look something like Figure C.1.\n\n\n\n\n\n\nFigure A.1: RStudio\n\n\n\nHere, there are four separate windows or “Panels”.\n\nThe source panel is top-left and this is basically a text editor where you type R code or regular text. Code here gets colored and looks different if it is doing various R things. More on this later. Code doesn’t get immediately executed here; it is more like a holding place for writing/testing/debugging bigger “scripts” or programs.\nThe console/terminal is bottom-left. The terminal is the 1980s window that does commands directly. Type print(‘Hello World’), press enter/return, and you’ve written some code. This console is what R would look like if you ran it without RStudio.\nThe top-right is the file manager panel. It shows files in your directory, plots, packages, and help files.\nThe bottom-right is the programming environment. It contains things you’ve loaded or coded. Right now it should be empty because you’ve done neither.\n\nOf course all of these can be moved around to match how you like to set it up. And I need a different color-scheme than the ugly default.\nSelect the Tools menu, followed by Global Options in the dropdown Tools menu. Navigate to appearance and you should be able to alter the color scheme to something more your style. My preferred style is Merbivore Soft as shown in Figure A.2.\n\n\n\n\n\n\nFigure A.2: goodRstudio",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>R and RStudio Installation and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Appendix B — Resources",
+    "section": "",
+    "text": "Base R is the collection of functions that come preloaded with R. A function is a code block that performs a task. Functions that come in R are in-built functions. However, the real power of R (and programming languages more generally) are the large number of user-built functions that are built to perform tasks that can be loaded into base R.\nSets of functions that have a common purpose are bundled together in R in “packages”. There are literally thousands of packages custom-built for R.\nDuring this course, I will ask you to use some important packages for data acquisition, tidying, and visualization. There are two steps to using a package in R.\nFirst, it needs to be installed. Here’s a non-functional example.\n\ninstall.packages('&lt;PACKAGE.NAME&gt;')\n\nAnd this example will install an actual package called janitor. This package features a nice import function that fixes column names on import called clean_names().\n\ninstall.packages('janitor')\n\nIn a meta way, you now have used a function to install a package. ‘install.package()’ is an example of an in-built R function.\nOnce a package is installed, it needs to be loaded. While the installation has put the package on your computer, you need to tell R that it should load these functions for use.\n\n\n\n\n\n\nR and other programming languages only do EXACTLY what they are told to do.\n\n\n\nLoading a package is accomplished by calling base R library function. Success is indicated with a message like “Attaching package: ‘janitor’\n\nlibrary(janitor)\n\n\nAttaching package: 'janitor'\n\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\n\nLibraries have to be loaded each time you restart your R session. The current libraries loaded can be founded in the file manager panel under the Packages tab.\n\nB.0.1 Color Resources\nCourtesy of Dalai Vo - Fall 2022 EA 078 student - a color palette cheatsheet",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Resources</span>"
+    ]
+  },
+  {
+    "objectID": "debugging.html",
+    "href": "debugging.html",
+    "title": "Appendix C — Debugging Steps",
+    "section": "",
+    "text": "C.1 Is there a typo?\nRunning any line of code or code block will fail if there is a typo.\nCheck for:",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Debugging Steps</span>"
+    ]
+  },
+  {
+    "objectID": "debugging.html#is-there-a-typo",
+    "href": "debugging.html#is-there-a-typo",
+    "title": "Appendix C — Debugging Steps",
+    "section": "",
+    "text": "typos or misspelling of variables, functions,\ncapitalization\nmissing punctuation (parenthesis, comma, pipe, +)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Debugging Steps</span>"
+    ]
+  },
+  {
+    "objectID": "debugging.html#is-the-packagelibrary-installed-and-loaded",
+    "href": "debugging.html#is-the-packagelibrary-installed-and-loaded",
+    "title": "Appendix C — Debugging Steps",
+    "section": "C.2 Is the package/library installed and loaded?",
+    "text": "C.2 Is the package/library installed and loaded?\nIf you are calling a function, the library needs to be installed and loaded (or called explicitly).\n\nCheck if the library is loaded in the Files, Plots, Packages... under the Packages tab. A package is loaded if there is a checkmark by it.\nCheck if the package is installed. Same procedure as above, but the package won’t even be listed if it isn’t installed.\nCall the package explicitly using the syntax &lt;PACKAGE.NAME&gt;::&lt;FUNCTION.NAME&gt;. An example would be janitor::clean_names().\n\nIf you don’t know where the panels are - see this image and description. We’ll use it a few times.\n\n\n\n\n\n\nFigure C.1: RStudio\n\n\n\nHere, there are four separate windows or “Panels”.\n\nThe source panel is top-left and this is basically a text editor where you type R code or regular text. Code here gets colored and looks different if it is doing various R things. More on this later. Code doesn’t get immediately executed here; it is more like a holding place for writing/testing/debugging bigger “scripts” or programs.\nThe console/terminal is bottom-left. The terminal is the 1980s window that does commands directly. Type print(‘Hello World’), press enter/return, and you’ve written some code. This console is what R would look like if you ran it without RStudio.\nThe top-right is the file manager or Files, Plots, Packages... panel. It shows files in your directory, plots, packages, and help files.\nThe bottom-right is the programming environment or Environment panel. It contains things you’ve loaded or coded. Right now it should be empty because you’ve done neither.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Debugging Steps</span>"
+    ]
+  },
+  {
+    "objectID": "debugging.html#is-the-data-loaded-in-the-global-environment",
+    "href": "debugging.html#is-the-data-loaded-in-the-global-environment",
+    "title": "Appendix C — Debugging Steps",
+    "section": "C.3 Is the data loaded in the global environment?",
+    "text": "C.3 Is the data loaded in the global environment?\nThe data needs to be imported and loaded into the global environment before it can be manipulated.\n\nCheck the Environment panel to see if the dataset of interest is loaded and named as expected.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Debugging Steps</span>"
+    ]
+  },
+  {
+    "objectID": "debugging.html#is-the-syntax-correct",
+    "href": "debugging.html#is-the-syntax-correct",
+    "title": "Appendix C — Debugging Steps",
+    "section": "C.4 Is the syntax correct?",
+    "text": "C.4 Is the syntax correct?\nThe syntax for the code needs to be correct, and needs to follow the idiomatic rules of R.\n\nShould it be a pipe |&gt; or a +?\nDoes the function include all required arguments?\nDid I pass in the data?",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Debugging Steps</span>"
+    ]
+  },
+  {
+    "objectID": "debugging.html#does-a-simpler-version-work",
+    "href": "debugging.html#does-a-simpler-version-work",
+    "title": "Appendix C — Debugging Steps",
+    "section": "C.5 Does a simpler version work?",
+    "text": "C.5 Does a simpler version work?\nWhen coding in class, we’ll often start simple, then add complexity for our visualization code. The reason for that is to make sure the very basic things are all there and working, and also because it makes debugging much simpler.\nIf a long piece of code breaks, try to see if a minimum reproducible example does work. This is standard for trouble-shooting to make sure none of the previous four things are the problem. Try to make it a single line of code with the most basic functionality and see if that works. Then add one line at a time to see where things break.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Debugging Steps</span>"
+    ]
+  }
+]
