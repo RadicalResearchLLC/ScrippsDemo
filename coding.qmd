@@ -23,7 +23,7 @@ print("My name is Mike McCarthy")
 
 ## Stepwise R Data Science Framework
 
-0. **Step 0** - [Install R and RStudio](https://radicalresearch.llc/ScrippsInterview/) 
+0. **Step 0** - [Install R and RStudio](https://radicalresearch.llc/ScrippsDemo/tools.html) 
 1. **Step 1 - Open RStudio **  
 2. **Step 2 - Packages**  
   A. Install key packages  

@@ -205,8 +205,6 @@ leaflet() |>
 
 ```
 
-
-
 ```{r}
 #| label: fig-legend
 #| fig-cap: Leaflet map for with numeric palette for Diesel PM percentiles, color legend, and opacity optimized.
@@ -222,8 +220,6 @@ leaflet(data = SoCalEJ) |> #NEW
             values = ~DieselPM_P)
 
 ```
-
-## Useful Function
 
 The `SoCalEJ` dataset has multiple columns that have values of `-999` indicating missing data which will interfere with color scales.
 
@@ -251,6 +247,8 @@ leaflet(data = SoCalEJ) |>
 
 The -999 values make the visualization useless.  We need to clean the dataset. A function can replace -999 values with `NA`.  
 
+## Functions
+
 A function can be created by defining a name, arguments, the code to execute the algorithm, and a return of the transformed dataset.
 
 ```{r}
@@ -267,9 +265,29 @@ function_name <- function(data, argument1) {
 
 ```
 
-### Practical Example 
+### Very Simple Example 
 
-Start with a working example.  
+```{webr}
+add_number <- function(x,y) {
+  x + y
+}
+# zip code of Scripps college and number of students
+add_number(91711, 1137)
+```
+
+#### Functional exercises
+
+1.  Try to design your own function called `multiply_number`
+2.  Try to design your own function that prints a user name that they enter.  
+
+### Very complicated function
+
+R has some non-standard issues when working with data frames.  I'll show this example but breaking it down is pretty advanced.  
+
+Start with a working example of replacing -999 values in the data frame.
+
+The `mutate()` function creates a new variable.
+The `if_else()` function checks to see if a condition is TRUE or FALSE, then returns the second value if TRUE and the third value if FALSE.
 
 ```{r}
 #| label: Practical Example
@@ -277,27 +295,27 @@ Start with a working example.
 
 SoCalEJ2 <- mutate(SoCalEJ, 
     # this searches for -999 values and replaces them with -999 for the Lead_P variable
-            Lead_P = if_else(Lead_P == -999, NA, Lead_P)
+            clean = if_else(Lead_P == -999, NA, Lead_P)
       )
 
 ```
 
-Create the function that applies that code.
+This works!  
+
+However, to create the function that applies that code, we need to use non-standard evaluation embrace and some quotes to ensure proper evaluation within the code.  This is an unsuitable example for beginners, but it does what I want to demonstrate in terms of quality controlling the table.  
 
 ```{r}
 #| label: Function replace999
 #| echo: true
 
-## Unfortunately, this functional example is very complicated and terrible
-## tidy nonstandard evaluation makes this extremely unintuitive
-## this goes beyond the scope of a very beginner lecture
-
+# name and arguments
 replace999 <- function(df, var) {
   clean <- mutate(df, 
     "clean" = if_else({{ var }} == -999, NA, {{ var }}))
+  # mutate() defines a new variable
+  
   return(clean)
 }
-
 
 ```
 
@@ -310,6 +328,8 @@ replace999 <- function(df, var) {
 SoCalEJ <- replace999(SoCalEJ, Lead_P) 
 
 ```
+
+This part is simple.  
 
 ### Rerun the map code
 
