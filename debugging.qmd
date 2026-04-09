@@ -1,0 +1,53 @@
+# Debugging Steps {#sec-appendix-debugging}
+
+::: callout-tip
+This provides my top debugging tips for beginners. I'll add to it as we encounter common bugs in class.
+:::
+
+## Is there a typo?
+
+Running any line of code or code block will fail if there is a typo.\
+Check for:
+
+-   typos or misspelling of variables, functions,
+-   capitalization
+-   missing punctuation (parenthesis, comma, pipe, +)
+
+## Is the package/library installed and loaded?
+
+If you are calling a function, the library needs to be installed and loaded (or called explicitly).
+
+-   Check if the library is loaded in the `Files, Plots, Packages...` under the `Packages` tab. A package is loaded if there is a checkmark by it.
+-   Check if the package is installed. Same procedure as above, but the package won't even be listed if it isn't installed.
+-   Call the package explicitly using the syntax \<PACKAGE.NAME\>::\<FUNCTION.NAME\>. An example would be janitor::clean_names().
+
+If you don't know where the panels are - see this image and description. We'll use it a few times.
+
+![RStudio](images/RStudio.png){#fig-RStudio}
+
+Here, there are four separate windows or "Panels".
+
+-   The source panel is top-left and this is basically a text editor where you type R code or regular text. Code here gets colored and looks different if it is doing various R things. More on this later. Code doesn't get immediately executed here; it is more like a holding place for writing/testing/debugging bigger "scripts" or programs.
+-   The console/terminal is bottom-left. The terminal is the 1980s window that does commands directly. Type print('Hello World'), press enter/return, and you've written some code. This console is what R would look like if you ran it without RStudio.
+-   The top-right is the file manager or `Files, Plots, Packages...` panel. It shows files in your directory, plots, packages, and help files.
+-   The bottom-right is the programming environment or `Environment` panel. It contains things you've loaded or coded. Right now it should be empty because you've done neither.
+
+## Is the data loaded in the global environment?
+
+The data needs to be imported and loaded into the global environment before it can be manipulated.
+
+-   Check the `Environment` panel to see if the dataset of interest is loaded and named as expected.
+
+## Is the syntax correct?
+
+The syntax for the code needs to be correct, and needs to follow the idiomatic rules of R.
+
+-   Should it be a pipe `|>` or a `+`?
+-   Does the function include all required arguments?
+-   Did I pass in the data?
+
+## Does a simpler version work?
+
+When coding in class, we'll often start simple, then add complexity for our visualization code. The reason for that is to make sure the very basic things are all there and working, and also because it makes debugging much simpler.
+
+If a long piece of code breaks, try to see if a `minimum reproducible example` does work. This is standard for trouble-shooting to make sure none of the previous four things are the problem. Try to make it a single line of code with the most basic functionality and see if that works. Then add one line at a time to see where things break.

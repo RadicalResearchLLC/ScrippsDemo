@@ -1,0 +1,8 @@
+# Coding Teaching Demo Assignment
+
+::: {.callout-note appearance="simple"}
+Give an example of a coding exercise about an environmental issue in a programming course. This should not be exclusively done in the ArcGIS platform. You will have 45 minutes followed by 15 minutes for questions. Presume that students have no coding background.
+
+In your demo, you should showcase writing new code. Please include creating a short, single-use script that turns out to be valuable, then converting that snippet into a function and reusing it across a much larger part of the investigation. 
+:::
+

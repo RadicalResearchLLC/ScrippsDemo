@@ -1,0 +1,31 @@
+project:
+  type: book
+
+book:
+  title: "Coding Exercise" 
+  subtitle: "Fletcher Jones Foundation Scholar in Computation and Environmental Analysis"
+  author: "Michael McCarthy, PhD"
+#  location: "Scripps College"
+  date: "4/9/2026"
+  chapters: 
+    - index.qmd  
+    - part: assignment.qmd
+      chapters:
+        - coding.qmd
+        - mapsScripps.qmd
+       # - shiny.qmd
+  appendices: 
+    - tools.qmd 
+    - resources.qmd 
+    - debugging.qmd 
+
+bibliography: references.bib
+
+format: live-html
+engine: knitr
+    - {{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+  
+editor: source
+
+
+

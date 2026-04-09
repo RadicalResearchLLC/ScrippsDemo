@@ -1,0 +1,338 @@
+# Maps in R {#sec-mapsScripps}
+
+![Tidyverse](https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png){#fig-TidyverseFramework}
+
+## Install Packages
+
+Packages are collections of functions that accomplish specialized tasks. To make a map today, we'll need to install three packages that are not part of base R.  
+
+- `dplyr` - data manipulation 
+- [`sf`]((https://r-spatial.github.io/sf/articles/sf1.html)) - spatial data manipulation
+- [`leaflet`](https://rstudio.github.io/leaflet/) - interactive, mobile-friendly maps 
+
+Packages need to be installed locally the first time they are used.
+
+```{r}
+#| label: install packages
+#| message: false
+#| echo: true
+#| eval: false
+#| warnings: false
+
+install.packages('dplyr')
+install.packages('sf')
+install.packages('leaflet')
+```
+
+
+Next, we load the packages to make sure they are available within the R environment.
+
+```{r}
+#| label: load  packages
+#| warning: false
+#| echo: true
+
+library(dplyr)
+library(sf)
+library(leaflet)
+```
+
+## Acquiring Data
+
+We will import a curated version of the [CalEnviroscreen4.0](https://oehha.ca.gov/calenviroscreen/report/calenviroscreen-40) data.
+
+Coding Vocabulary
+ 
+- `st_read()` reads geospatial data files.
+- `st_transform()` alters coordinate reference system.
+-  `<-` operator to assign to a variable
+- `|>` pipe operator
+- `crs` - coordinate reference system, where 4326 is [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System)
+
+```{r}
+#| label: California Enviroscreen 4.0 SoCal dataset
+#| warning: false
+#| echo: true
+
+#web url
+URL.path <- 'https://raw.githubusercontent.com/RadicalResearchLLC/EDVcourse/main/CalEJ4/CalEJ.geoJSON'
+
+#read data and assign it 
+SoCalEJ <- st_read(URL.path) |> 
+  st_transform(crs = 4326) #change crs 
+
+```
+
+::: {.callout-note appearance="simple"}
+Pro tip: Always look at the data after import. Importing data is fraught with peril.
+:::
+
+```{r}
+#| label: check header
+#| warning: false
+#| echo: true
+
+head(SoCalEJ)
+
+```
+
+
+## Visualize the Data 
+
+### Choose the visualization type and function
+
+We'll use`leaflet()` for visualization for geospatial data today, and add at least one `add` function to display spatial information.
+
+Vocabulary  
+
+-   `leaflet()` - create a leaflet map  
+-   `addTiles()` - add map tiles  
+-   `addMarkers()` - add point markers  
+-   `addPolygons()` - add filled polygons  
+-   `addLegends()` - add a map legend   
+
+### Write the code for a *basic* geospatial visualization
+
+#### Example 1 - Basic Tile Map
+
+@fig-mapBasic shows the standard leaflet map with a minimal reproducible example.
+
+The code is simply two lines with two actionable functions.
+
+```{r}
+#| label: fig-mapBasic
+#| fig-cap: A very basic Leaflet map
+#| echo: true
+
+leaflet() |> #call a leaflet map
+  addTiles() #with default map tiles
+
+```
+
+#### Example 2. Add Environmental information
+
+-   Make a leaflet map with the SoCalEJ dataset. It should look like @fig-CalEJ.
+
+```{r}
+#| label: fig-CalEJ
+#| fig-cap: Leaflet map with Calenviroscreen 4.0
+#| echo: true
+
+leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = SoCalEJ)  #NEW
+
+```
+
+### Improve the Visualization
+
+In the `addPolygons()` function, there are many `parameters` that can be modified.
+
+-   `color`
+-   `weight`
+-   `opacity`
+-   `fillColor`
+-   `fillOpacity`
+-   `stroke`
+-   `group`
+-   `label`
+
+Let's iterate and make some improvements!
+
+@fig-black shows what happens we just change the color from blue to black. 
+
+```{r}
+#| label: fig-black 
+#| fig-cap: Leaflet map with SoCalEJ census tracts color changed to black
+#| echo: true
+#| 
+leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = SoCalEJ, 
+              color = 'black') #NEW 
+
+```
+
+The lines are too heavy. Let's lower the `weight` - we'll let the color go back to blue to keep the example minimal.
+
+@fig-weight shows the result, which is a much cleaner look.
+
+```{r}
+#| label: fig-weight
+#| fig-cap: Leaflet map with line weight changed to 1.
+#| echo: true
+
+leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = SoCalEJ, 
+              color = 'black',
+              weight = 1)  #NEW
+
+```
+
+#### Visualization Iteration 
+
+Within the SoCalEJ dataset are over 50 columns of values with names like "Ozone", "Pesticide", and "DieselPM_P". We will use the fillcolor variable to indicate the values of one of these columns using a color palette.
+
+Functions that help define the color palette in `leaflet` are:
+
+-   `colorNumeric()` - a linear color scale
+-   `colorQuantile()` - a color scale that can ensure the bin sizes are approximately equal
+-   `colorFactor()` - a color scale that is good for categorical ('non-numeric') data
+
+```{r}
+#| label: assign color palette for DieselPM_P
+#| echo: true
+
+#NEW - color palette definition
+pal1 <- colorNumeric(palette = 'magma', domain = SoCalEJ$DieselPM_P) 
+
+```
+
+Now we see what those two palettes look like in the map. @fig-numeric shows the default numeric palette, but it is too faint with the background tiles.
+
+```{r}
+#| label: fig-numeric
+#| fig-cap: Leaflet map for Ozone in Southern California.
+#| echo: true
+
+leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = SoCalEJ,
+              weight = 1,
+              color = ~pal1(DieselPM_P) #NEW
+              ) 
+
+```
+
+
+
+```{r}
+#| label: fig-legend
+#| fig-cap: Leaflet map for with numeric palette for Diesel PM percentiles, color legend, and opacity optimized.
+#| echo: true
+
+leaflet(data = SoCalEJ) |> #NEW 
+  addProviderTiles(providers$CartoDB.Positron)|> 
+  addPolygons(color = ~pal1(DieselPM_P),
+              weight = 1,
+              fillOpacity = 0.8) |> 
+  addLegend(pal = pal1, 
+            title = 'Diesel Particulate Matter (%)', 
+            values = ~DieselPM_P)
+
+```
+
+## Useful Function
+
+The `SoCalEJ` dataset has multiple columns that have values of `-999` indicating missing data which will interfere with color scales.
+
+@fig-Lead_P is a map using the `Lead_P` variable instead of DieselPM_P. Lead is an indication of lead-based paint exposures based on housing age households with children under age 6.  
+
+```{r}
+#| label: fig-Lead_P
+#| fig-cap: Leaflet map for Lead Paint exposure percentile in Southern California
+#| echo: true
+
+palLead <- colorNumeric(palette = 'magma', domain = SoCalEJ$Lead_P, n = 5)
+
+leaflet(data = SoCalEJ) |> 
+  addProviderTiles(providers$CartoDB.Positron) |> 
+  setView(lat = 34, lng = -117.60, zoom = 9) |> 
+  addPolygons(weight = 1,
+              color = ~palLead(Lead_P),
+              fillOpacity = 0.8) |> 
+  addLegend(pal = palLead, 
+            title = 'Lead (%)', 
+            values = ~Lead_P)
+
+```
+
+
+The -999 values make the visualization useless.  We need to clean the dataset. A function can replace -999 values with `NA`.  
+
+A function can be created by defining a name, arguments, the code to execute the algorithm, and a return of the transformed dataset.
+
+```{r}
+#| label: Functional example
+#| echo: true
+#| eval: false
+
+# General Structure
+function_name <- function(data, argument1) {
+  # Perform cleaning steps (e.g., replace -999 with NA)
+  cleaned_data <- ... 
+  return(cleaned_data)
+}
+
+```
+
+### Practical Example 
+
+Start with a working example.  
+
+```{r}
+#| label: Practical Example
+#| echo: true
+
+SoCalEJ2 <- mutate(SoCalEJ, 
+    # this searches for -999 values and replaces them with -999 for the Lead_P variable
+            Lead_P = if_else(Lead_P == -999, NA, Lead_P)
+      )
+
+```
+
+Create the function that applies that code.
+
+```{r}
+#| label: Function replace999
+#| echo: true
+
+## Unfortunately, this functional example is very complicated and terrible
+## tidy nonstandard evaluation makes this extremely unintuitive
+## this goes beyond the scope of a very beginner lecture
+
+replace999 <- function(df, var) {
+  clean <- mutate(df, 
+    "clean" = if_else({{ var }} == -999, NA, {{ var }}))
+  return(clean)
+}
+
+
+```
+
+### Apply the function
+
+```{r}
+#| label: apply replace999 function
+#| echo: true
+
+SoCalEJ <- replace999(SoCalEJ, Lead_P) 
+
+```
+
+### Rerun the map code
+
+@fig-clean_Lead shows the update
+
+```{r}
+#| label: fig-clean_Lead
+#| fig-cap: Clean Lead Paint exposure percentile in Southern California
+#| echo: true
+
+##Note - the column name is now clean rather than Lead_P in the color palette and code
+palLead <- colorNumeric(palette = 'magma', domain = SoCalEJ$clean, n = 5)
+
+leaflet(data = SoCalEJ) |> 
+  addTiles() |> 
+  setView(lat = 34, lng = -117.60, zoom = 9) |> 
+  addPolygons(stroke = FALSE,
+              fillColor = ~palLead(clean),
+              fillOpacity = 0.8) |> 
+  addLegend(pal = palLead, 
+            title = 'Lead Paint (%)', 
+            values = ~clean)
+
+```
+
+

@@ -1,0 +1,21 @@
+### Introduction {.unnumbered}
+
+---
+description-meta: |
+  This website provides a data coding . 
+format: live-html
+engine: knitr
+---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Preface {.unnumbered}
+
+This is the website for a coding exercise about an environmental issue in a programming course, provided as part of on-site interview.  This exercise is a modified version of a couple of existing lessons provided in [EA 078 - Environmental Data Visualization](https://radicalresearch.llc/EA078_Fall2024/).
+
+::: {.callout-note appearance="simple"}
+This book is created using the [Quarto](https://quarto.org) publishing system in order to provide an example of its use in environmental data visualization and as a course resource tool for display of coding examples and visualization. The underlying code is hosted on [github](https://github.com/RadicalResearchLLC/ScrippsInterview)
+:::
+
+The scholarly research presentation is [here](https://radicalresearch.llc/ScrippsTalk/#/title-slide).
+
