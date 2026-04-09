@@ -230,7 +230,8 @@ The `SoCalEJ` dataset has multiple columns that have values of `-999` indicating
 #| fig-cap: Leaflet map for Lead Paint exposure percentile in Southern California
 #| echo: true
 
-palLead <- colorNumeric(palette = 'magma', domain = SoCalEJ$Lead_P, n = 5)
+palLead <- colorNumeric(palette = 'PuOr', domain = SoCalEJ$Lead_P,
+                        na.color = '#808080')
 
 leaflet(data = SoCalEJ) |> 
   addProviderTiles(providers$CartoDB.Positron) |> 
@@ -341,7 +342,8 @@ This part is simple.
 #| echo: true
 
 ##Note - the column name is now clean rather than Lead_P in the color palette and code
-palLead <- colorNumeric(palette = 'magma', domain = SoCalEJ$clean, n = 5)
+palLead <- colorNumeric(palette = 'magma', domain = SoCalEJ$clean,  
+                        na.color = '#808080')
 
 leaflet(data = SoCalEJ) |> 
   addTiles() |> 
